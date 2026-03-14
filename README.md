@@ -1,16 +1,51 @@
-# React + Vite
+# <p align="center">🛍️ Talabat Egypt Clone - Frontend</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+</p>
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Overview
+A modern, full-stack inspired Frontend for the **Talabat Egypt Clone**. This application provides a seamless shopping experience, interacting with a custom .NET Web API to handle authentication, products, and orders.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Features
+* **🔐 Advanced Auth:** Integration with .NET Identity & JWT for secure Login/Register.
+* **⚡ State Management:** Managed via **Context API** for Cart, Wishlist, and User Tokens.
+* **📦 Dynamic Products:** Real-time data fetching from the backend API.
+* **🛒 Shopping Basket:** Full cart functionality with Redis-backed session management logic.
+* **📱 Responsive UI:** Optimized for all screen sizes using modern CSS.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technical Stack
+- **Library:** React.js (Vite)
+- **Styling:** Tailwind CSS / Bootstrap
+- **Forms:** Formik & Yup (Validation)
+- **API Client:** Axios
+- **Routing:** React Router Dom
+
+---
+
+## 📂 Project Structure
+- `src/Components`: Reusable UI components (Navbar, Footer, Home, etc.)
+- `src/Context`: State management for User and Cart.
+- `src/assets`: Images and global styles.
+
+---
+
+## 🎨 Design Theme
+| Palette | Hex Code |
+| :--- | :--- |
+| **Primary** | `#AAF0D1` (Mint Green) |
+| **Secondary** | `#89CFF0` (Baby Blue) |
+
+---
+
+<p align="center">
+Developed with ❤️ by <b>Nahla Salah</b>
+</p>
