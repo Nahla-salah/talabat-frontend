@@ -1,16 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/images/:path*",
-      "destination": "http://talabat-nahla-api.runasp.net/images/:path*"
-    },
-    {
       "source": "/api/:path*",
-      "destination": "https://talabat-nahla-api.runasp.net/api/:path*"
+      "destination": "http://talabat-nahla-api.runasp.net/api/:path*"
     },
     {
       "source": "/Api/:path*",
-      "destination": "https://talabat-nahla-api.runasp.net/Api/:path*"
+      "destination": "http://talabat-nahla-api.runasp.net/Api/:path*"
     },
     {
       "source": "/(.*)",
