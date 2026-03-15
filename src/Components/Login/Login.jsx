@@ -23,7 +23,7 @@ function Login() {
     setLoading(true);
     try {
     
-      const { data } = await axios.post('http://localhost:8050/Api/Authentication/Login', values);
+      const { data } = await axios.post('http://talabat-nahla-api.runasp.net/Api/Authentication/Login', values);
       
    
       localStorage.setItem("Token", data.token);

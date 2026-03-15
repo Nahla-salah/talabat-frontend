@@ -9,21 +9,21 @@ function ForgotPassword() {
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // يمنع الصفحة من عمل Refresh
-    console.log("تم الضغط على زر الإرسال للإيميل:", email); // للتأكد أن الدالة تعمل
+    e.preventDefault(); 
+    console.log("تم الضغط على زر الإرسال للإيميل:", email); 
     
     setLoading(true);
     setMessage('');
     setError('');
 
     try {
-      // استبدلي هذا الرابط برابط الـ API الحقيقي الخاص بكِ
-      const response = await fetch('http://localhost:8050/Api/Authentication/Forgot-Password', {
+   
+      const response = await fetch('http://talabat-nahla-api.runasp.net/Api/Authentication/Forgot-Password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email: email }), // تأكدي أن السيرفر يتوقع كائن به email
+        body: JSON.stringify({ email: email }), 
       });
 
       console.log("Response Status:", response.status);

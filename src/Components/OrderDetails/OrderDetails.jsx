@@ -13,7 +13,7 @@ const OrderDetails = () => {
 
   const getOrderById = async () => {
     // 2. استخدام الـ id المتغير بدلاً من الرقم الثابت
-    const { data } = await axios.get(`http://localhost:8050/Api/Order/${id}`, {
+    const { data } = await axios.get(`http://talabat-nahla-api.runasp.net/Api/Order/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -64,7 +64,7 @@ const OrderDetails = () => {
               {order?.orderItems?.map((item, index) => (
                 <div key={index} className="flex items-center gap-4 mb-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
                   <img 
-                    src={`http://localhost:8050/${item.pictureUrl}`} 
+                    src={`http://talabat-nahla-api.runasp.net/${item.pictureUrl}`} 
                     className="w-16 h-16 rounded-xl object-cover bg-white" 
                     alt={item.productName} 
                   />
