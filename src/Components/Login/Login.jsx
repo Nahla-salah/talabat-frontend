@@ -23,7 +23,7 @@ function Login() {
     setLoading(true);
     try {
     
-      const { data } = await axios.post('/Api/Authentication/Login', values);
+      const { data } = await axios.post('/Api/Authentication/Login/', values);
       
    
       localStorage.setItem("Token", data.token);
