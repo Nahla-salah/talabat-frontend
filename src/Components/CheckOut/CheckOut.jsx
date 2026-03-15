@@ -55,7 +55,7 @@ const Checkout = () => {
 
     try {
       const response = await axios.post(
-        "http://talabat-nahla-api.runasp.net/Api/Order",
+        "https://talabat-nahla-api.runasp.net/Api/Order",
         orderData,
         {
           headers: {
@@ -64,13 +64,13 @@ const Checkout = () => {
         }
       );
 
-      // هنا يتم استلام البيانات بنجاح
+
       if (response.status === 200 || response.status === 201) {
         toast.success("تم تسجيل طلبك بنجاح 🎉");
-        const newOrderId = response.data.id; // استخراج الـ ID الخاص بالأوردر الجديد
+        const newOrderId = response.data.id; 
         clearCart(); 
         
-        // الانتقال لصفحة تفاصيل الطلب الذي تم إنشاؤه للتو
+     
         navigate(`/orderdetails/${newOrderId}`);
       }
     } catch (error) {
@@ -101,7 +101,7 @@ const Checkout = () => {
           <input type="text" name="street" placeholder="Street" required onChange={handleInputChange} className="border rounded-md p-3 w-full focus:ring-2 focus:ring-green-500" />
           <input type="number" name="deliveryMethodId" placeholder="رقم طريقة التوصيل (مثلاً 1)" required onChange={handleInputChange} className="border rounded-md p-3 w-full focus:ring-2 focus:ring-green-500" />
 
-          {/* تم إرجاع الزر كـ button بدلاً من Link لحل المشكلة */}
+
           <button 
             type="submit"
             disabled={loading}

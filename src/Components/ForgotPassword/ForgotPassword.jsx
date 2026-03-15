@@ -18,7 +18,7 @@ function ForgotPassword() {
 
     try {
    
-      const response = await fetch('http://talabat-nahla-api.runasp.net/Api/Authentication/Forgot-Password', {
+      const response = await fetch('https://talabat-nahla-api.runasp.net/Api/Authentication/Forgot-Password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ function ForgotPassword() {
           </p>
         </div>
 
-        {/* عرض رسائل النجاح أو الخطأ */}
+     
         {message && <div className="mb-4 p-3 bg-green-50 text-green-700 rounded-xl text-center text-sm font-bold border border-green-100">{message}</div>}
         {error && <div className="mb-4 p-3 bg-red-50 text-red-700 rounded-xl text-center text-sm font-bold border border-red-100">{error}</div>}
 

@@ -24,7 +24,7 @@ const CategoriesPage = () => {
 
 
     useEffect(() => {
-        axios.get('http://talabat-nahla-api.runasp.net/api/Product/Types')
+        axios.get('https://talabat-nahla-api.runasp.net/api/Product/Types')
             .then(res => setTypes(res.data))
             .catch(err => console.error("Error Types:", err));
     }, []);

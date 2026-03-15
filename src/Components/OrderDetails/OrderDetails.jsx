@@ -13,7 +13,7 @@ const OrderDetails = () => {
 
   const getOrderById = async () => {
     // 2. استخدام الـ id المتغير بدلاً من الرقم الثابت
-    const { data } = await axios.get(`http://talabat-nahla-api.runasp.net/Api/Order/${id}`, {
+    const { data } = await axios.get(`https://talabat-nahla-api.runasp.net/Api/Order/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
