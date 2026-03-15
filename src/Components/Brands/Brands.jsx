@@ -23,7 +23,7 @@ const BrandsPage = () => {
 
    
     useEffect(() => {
-        axios.get('http://talabat-nahla-api.runasp.net/Api/Product/Brands')
+        axios.get('/Api/Product/Brands')
             .then(res => setBrands(res.data))
             .catch(err => console.error("Error Brands:", err));
     }, []);
@@ -32,8 +32,8 @@ const BrandsPage = () => {
     useEffect(() => {
         setLoading(true);
         const url = selectedBrandId 
-            ? `http://talabat-nahla-api.runasp.net/Api/Product?brandId=${selectedBrandId}` 
-            : `http://talabat-nahla-api.runasp.net/Api/Product`;
+            ? `/Api/Product?brandId=${selectedBrandId}` 
+            : `/Api/Product`;
 
         axios.get(url)
             .then(res => {

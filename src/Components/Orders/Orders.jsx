@@ -10,7 +10,7 @@ const Orders = () => {
 
 
   const getAllOrders = async () => {
-    const { data } = await axios.get(`https://talabat-nahla-api.runasp.net/Api/Order`, {
+    const { data } = await axios.get(`/Api/Order`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

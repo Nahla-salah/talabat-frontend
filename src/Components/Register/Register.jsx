@@ -22,7 +22,7 @@ function Register() {
 async function signup(values, { resetForm }) {
     setLoading(true);
     try {
-      const { data } = await axios.post('http://talabat-nahla-api.runasp.net/Api/Authentication/Register', values);
+      const { data } = await axios.post('/Api/Authentication/Register', values);
       toast.success("Registration successful!");
        localStorage.setItem("Token", data.token);
       resetForm();

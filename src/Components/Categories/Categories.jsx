@@ -24,7 +24,7 @@ const CategoriesPage = () => {
 
 
     useEffect(() => {
-        axios.get('http://talabat-nahla-api.runasp.net/Api/Product/Types')
+        axios.get('/Api/Product/Types')
             .then(res => setTypes(res.data))
             .catch(err => console.error("Error Types:", err));
     }, []);
@@ -33,8 +33,8 @@ const CategoriesPage = () => {
     useEffect(() => {
         setLoading(true);
         const url = selectedTypeId 
-            ? `http://talabat-nahla-api.runasp.net/api/Product?typeId=${selectedTypeId}` 
-            : `http://talabat-nahla-api.runasp.net/api/Product`;
+            ? `/Api/Product?typeId=${selectedTypeId}` 
+            : `/Api/Product`;
 
         axios.get(url)
             .then(res => {

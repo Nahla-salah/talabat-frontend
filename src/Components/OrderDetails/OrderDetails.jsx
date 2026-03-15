@@ -2,18 +2,18 @@ import React from 'react';
 import axios from 'axios';
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from 'react';
-import { useParams } from 'react-router-dom'; // سحب المتغيرات من الرابط
+import { useParams } from 'react-router-dom'; 
 import { AuthContext } from '../../Context/AuthContext'; 
 
 const OrderDetails = () => {
   const { token } = useContext(AuthContext);
   
-  // 1. التقاط الـ ID من الرابط أوتوماتيكياً
+
   const { id } = useParams(); 
 
   const getOrderById = async () => {
-    // 2. استخدام الـ id المتغير بدلاً من الرقم الثابت
-    const { data } = await axios.get(`https://talabat-nahla-api.runasp.net/Api/Order/${id}`, {
+
+    const { data } = await axios.get(`/Api/Order/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -22,7 +22,7 @@ const OrderDetails = () => {
   };
 
   const { data: order, isLoading, isError } = useQuery({
-    // 3. تحديث الـ queryKey ليشمل الـ id لضمان تحديث البيانات عند تغيير الأوردر
+
     queryKey: ["singleOrder", id], 
     queryFn: getOrderById,
     enabled: !!token && !!id, 
@@ -64,7 +64,7 @@ const OrderDetails = () => {
               {order?.orderItems?.map((item, index) => (
                 <div key={index} className="flex items-center gap-4 mb-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
                   <img 
-                    src={`http://talabat-nahla-api.runasp.net/${item.pictureUrl}`} 
+                   src={item.pictureUrl.startsWith('http') ? item.pictureUrl : `http://talabat-nahla-api.runasp.net/${item.pictureUrl}`}
                     className="w-16 h-16 rounded-xl object-cover bg-white" 
                     alt={item.productName} 
                   />

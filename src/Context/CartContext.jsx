@@ -6,7 +6,7 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [basket, setBasket] = useState(null);
-  const baseUrl = "http://talabat-nahla-api.runasp.net/Api/Basket";
+  const baseUrl = "/api/Basket";
 
   const displayCart = async () => {
   

@@ -16,7 +16,7 @@ const Home = () => {
 
 
   const getProducts = async () => {
-    const res = await axios.get('http://talabat-nahla-api.runasp.net/Api/Product');
+    const res = await axios.get('/Api/Product');
     return res.data;
   };
 

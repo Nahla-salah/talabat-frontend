@@ -55,7 +55,7 @@ const Checkout = () => {
 
     try {
       const response = await axios.post(
-        "http://talabat-nahla-api.runasp.net/Api/Order",
+        "/Api/Order",
         orderData,
         {
           headers: {
