@@ -4,10 +4,6 @@ import { useState } from 'react'
 
  export const AuthContext =  createContext()
 
-
-
-
-
 function AuthContextProvider({children}) {
 
 const [ token, setToken ] =useState(null)

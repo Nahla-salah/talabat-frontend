@@ -29,7 +29,7 @@ const Orders = () => {
     return (
       <div className="py-20 text-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-teal-600 mx-auto"></div>
-        <p className="mt-4 text-teal-600 font-bold">جاري تحميل طلباتك...</p>
+        <p className="mt-4 text-teal-600 font-bold">Loading your Orders</p>
       </div>
     );
   }
@@ -40,15 +40,15 @@ const Orders = () => {
       <div className="container mx-auto px-4 py-20 text-center" dir="rtl">
         <div className="max-w-md mx-auto bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
           
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">لا توجد طلبات بعد!</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">There Is No Orders Yet !!</h2>
           <p className="text-gray-500 mb-8">
-            يبدو أنكِ لم تقومي بإجراء أي عمليات شراء حتى الآن. ابدأي بالتسوق وستظهر طلباتكِ هنا.
+          Start Shopping And Your Cart Will Appear here
           </p>
           <Link 
             to="/" 
             className="inline-block bg-teal-600 text-white px-10 py-3 rounded-2xl font-bold hover:bg-teal-700 transition-all shadow-lg shadow-teal-100"
           >
-            ابدأ التسوق الآن
+              Start Shopping Now 
           </Link>
         </div>
       </div>
@@ -64,7 +64,7 @@ const Orders = () => {
         {orders.map((order) => (
           <div key={order.id} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center transition hover:shadow-md">
             <div>
-              <p className="text-xs text-gray-400 font-mono">رقم الطلب: #{order.id.slice(0, 8)}</p>
+              <p className="text-xs text-gray-400 font-mono"> Oreder Id: #{order.id.slice(0, 8)}</p>
               <p className="text-lg font-bold text-gray-800 mt-1">{order.total} EGP</p>
               <p className="text-xs text-gray-500">{new Date(order.orderDate).toLocaleDateString('ar-EG')}</p>
             </div>
@@ -78,7 +78,7 @@ const Orders = () => {
   to={`/orderdetails/${order.id}`} 
   className="bg-teal-900 text-white px-6 py-2 rounded-xl text-sm font-bold"
 >
-  تفاصيل الطلب
+  Order Details
 </Link>
             </div>
           </div>

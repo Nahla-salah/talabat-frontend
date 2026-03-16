@@ -1,5 +1,5 @@
 import Home from './Components/Home/Home'
-import About from './Components/About/About'
+
 import Login from './Components/Login/Login'
 import Register from './Components/Register/Register'
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword'
@@ -22,6 +22,7 @@ import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import OrderDetails from './Components/OrderDetails/OrderDetails'
+import ResetPassword from './Components/ResetPassword/ResetPassword'
 
 const queryClient = new QueryClient()
 
@@ -34,7 +35,7 @@ const App = () => {
       children: [
         { path: '/', element: <ProtectedRoute><Home /></ProtectedRoute> },
         { path: '/home', element: <ProtectedRoute><Home /></ProtectedRoute> },
-        { path: '/about', element: <ProtectedRoute><About /></ProtectedRoute> },
+       
         { path: '/login', element: <Login /> },
         { path: '/register', element: <Register /> },
         { path: '/checkout', element: <ProtectedRoute><CheckOut /></ProtectedRoute> },
@@ -43,12 +44,13 @@ const App = () => {
         { path: '/categories', element: <ProtectedRoute><Categories /></ProtectedRoute> },
         { path: '/cart', element: <ProtectedRoute><Cart /></ProtectedRoute> },
         { path: '/orders', element: <ProtectedRoute><Orders /></ProtectedRoute> },
-        
+       
        
         { path: '/orderdetails/:id', element: <ProtectedRoute><OrderDetails /></ProtectedRoute> },
         
         { path: '/homeSlider', element: <ProtectedRoute><HomeSlider /></ProtectedRoute> },
         { path: '/forgot-password', element: <ForgotPassword /> },
+          { path: '/reset-password', element: <ProtectedRoute><ResetPassword/></ProtectedRoute> },
         { path: '/*', element: <Error /> }
       ]
     }

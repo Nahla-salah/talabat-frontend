@@ -40,14 +40,14 @@ const BrandsPage = () => {
     }, [selectedBrandId]);
 
     return (
-        // 1. تعديل الحاوية الأساسية لتكون flex-col في الموبايل و flex-row في الشاشات الكبيرة
+      
         <div className="flex flex-col md:flex-row min-h-screen bg-gray-50">
         
-            {/* 2. تعديل الـ Sidebar ليكون عرض كامل في الموبايل وشريط أفقي */}
+          
             <div className="w-full md:w-64 bg-white shadow-md p-4 md:p-6 sticky top-16 z-40">
                 <h2 className="text-lg md:text-xl font-bold mb-4 md:mb-6 text-gray-800 border-b pb-2">Brands</h2>
                 
-                {/* 3. القائمة تصبح flex مع التمرير الأفقي في الموبايل */}
+           
                 <ul className="flex md:flex-col overflow-x-auto md:overflow-y-auto gap-2 pb-2 md:pb-0 no-scrollbar">
                     <li 
                         onClick={() => setSelectedBrandId(null)}
@@ -67,7 +67,7 @@ const BrandsPage = () => {
                 </ul>
             </div>
 
-            {/* محتوى المنتجات */}
+       
             <div className="flex-1 p-4 md:p-8">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
                     <h1 className="text-2xl md:text-3xl font-bold text-gray-800">

@@ -14,8 +14,8 @@ function Login() {
 
 
   const validYup = Yup.object().shape({
-    Email: Yup.string().email("تنسيق البريد الإلكتروني غير صحيح").required("البريد الإلكتروني مطلوب"),
-    Password: Yup.string().min(6, "كلمة المرور يجب أن تكون 6 أحرف على الأقل").required("كلمة المرور مطلوبة")
+    Email: Yup.string().email("Invalid email format").required("Email is required"),
+    Password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
   });
 
 
@@ -34,7 +34,7 @@ function Login() {
 
       setToken(data.token);
    
-      toast.success("تم تسجيل الدخول بنجاح!");
+      toast.success("Login Successful");
       
 
       resetForm(); 
