@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
+import Typewriter from 'typewriter-effect';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../Context/CartContext';
 import { useQuery } from "@tanstack/react-query";
@@ -57,9 +58,18 @@ const Home = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-         <h1 className='text-center  text-3xl text-green-600'>
-        Welcome To The Shop
-      </h1>
+
+<h1 className="text-4xl font-extrabold text-teal-900 text-center mb-10 h-16">
+  <Typewriter
+    options={{
+      strings: ['Welcome To The Shop', 'Delicious Meals Await!', 'Order Now!'],
+      autoStart: true,
+      loop: true,
+      delay: 75, 
+      deleteSpeed: 50, 
+    }}
+  />
+</h1>
     <HomeSlider/>
    
 
