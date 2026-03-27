@@ -65,9 +65,20 @@ const OrderDetails = () => {
                 <div key={index} className="flex items-center gap-4 mb-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
              
 <img 
-  src={item.pictureUrl} 
+
+  src={item.pictureUrl?.startsWith('http') 
+    ? item.pictureUrl 
+    : `http://talabat-nahla-api.runasp.net/${item.pictureUrl?.replace(/^\/+/, '')}`
+  }
   className="w-16 h-16 rounded-xl object-cover bg-white" 
   alt={item.productName} 
+  
+ 
+  onError={(e) => {
+    e.target.onerror = null; 
+    const fileName = item.pictureUrl?.split('/').pop();
+    e.target.src = `http://talabat-nahla-api.runasp.net/images/products/${fileName}`;
+  }}
 />
                   <div className="flex-1">
                     <p className="font-bold text-gray-900">{item.productName}</p>
