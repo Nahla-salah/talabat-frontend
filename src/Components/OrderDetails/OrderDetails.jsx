@@ -41,7 +41,7 @@ const OrderDetails = () => {
     <div className="container mx-auto px-4 py-10 text-right" dir="rtl">
       <div className="max-w-4xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden border border-gray-100">
         
-        {/* رأس البطاقة */}
+
         <div className="bg-teal-600 p-8 text-white flex justify-between items-center">
           <div>
             <h2 className="text-2xl font-bold">تفاصيل الفاتورة</h2>
@@ -58,16 +58,20 @@ const OrderDetails = () => {
         <div className="p-8">
           <div className="grid md:grid-cols-2 gap-12">
             
-            {/* قائمة الأصناف */}
+            
             <div>
               <h3 className="font-bold text-gray-800 mb-6 border-b-2 border-teal-500 pb-2 w-fit">الأصناف المطلوبة</h3>
               {order?.orderItems?.map((item, index) => (
                 <div key={index} className="flex items-center gap-4 mb-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                  <img 
-                   src={item.pictureUrl.startsWith('http') ? item.pictureUrl : `http://talabat-nahla-api.runasp.net/${item.pictureUrl}`}
-                    className="w-16 h-16 rounded-xl object-cover bg-white" 
-                    alt={item.productName} 
-                  />
+             <img 
+  src={
+    item.pictureUrl.startsWith('http') 
+      ? item.pictureUrl 
+      : `http://talabat-nahla-api.runasp.net/${item.pictureUrl.replace(/^\/+/, '')}` 
+  }
+  className="w-16 h-16 rounded-xl object-cover bg-white" 
+  alt={item.productName} 
+/>
                   <div className="flex-1">
                     <p className="font-bold text-gray-900">{item.productName}</p>
                     <p className="text-sm text-teal-600 font-bold">{item.quantity} × {item.price} EGP</p>
@@ -76,7 +80,7 @@ const OrderDetails = () => {
               ))}
             </div>
 
-            {/* بيانات الشحن */}
+        
             <div className="space-y-6">
               <div className="bg-teal-50 p-6 rounded-3xl border border-teal-100 shadow-inner">
                 <h3 className="font-bold text-teal-900 mb-4 text-sm uppercase">بيانات التوصيل</h3>
@@ -88,7 +92,7 @@ const OrderDetails = () => {
                 </div>
               </div>
 
-              {/* الملخص المالي */}
+             
               <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-lg space-y-3">
                 <div className="flex justify-between text-gray-500 text-sm">
                   <span>المجموع الفرعي:</span>

@@ -91,12 +91,9 @@ const Home = () => {
               {product.price} EGP
             </p>
 
-            <button
-              onClick={() => handleAdd(product)}
-              className="bg-orange-500 text-white py-2 px-4 rounded-lg mt-3"
-            >
-              Add to Cart
-            </button>
+          <button onClick={() => handleAdd(product)} className="bg-orange-500 text-white px-2 py-1 md:px-3 md:py-1.5 rounded-md text-xs md:text-sm hover:bg-orange-600 transition-colors">
+                                        Add to Cart
+                                    </button>
 
           </div>
 
