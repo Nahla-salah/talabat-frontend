@@ -21,7 +21,7 @@ export default function Cart() {
 
       {basket?.items?.length > 0 ? (
         <div className="max-w-4xl mx-auto">
-          {/* Summary Header */}
+    
           <div className="my-6 font-bold text-xl text-teal-800 flex flex-wrap justify-around items-center bg-teal-50 p-6 rounded-2xl border border-teal-100 shadow-sm">
             <div>Total: <span className='text-red-700'>{totalPrice?.toFixed(2)}</span> EGP</div>
             <div className='text-teal-900'>{basket.items.length} Items</div>
@@ -30,7 +30,7 @@ export default function Cart() {
             </Link>
           </div>
 
-          {/* Items List */}
+         
           <div className="grid gap-6">
             {basket.items.map((item) => (
               <div key={item.id} className="flex flex-col md:flex-row items-center justify-between p-5 rounded-3xl shadow-sm bg-white border border-gray-100 hover:shadow-md transition-shadow">
@@ -49,7 +49,7 @@ export default function Cart() {
                 </div>
 
                 <div className="flex items-center gap-8 mt-4 md:mt-0">
-                  {/* Quantity Controller */}
+           
                   <div className="flex items-center bg-gray-50 rounded-2xl p-1 border border-gray-100">
                     <button
                       onClick={() => updateQuantity(item.id, 1)}
@@ -68,7 +68,7 @@ export default function Cart() {
                     </button>
                   </div>
 
-                  {/* Remove Button */}
+                
                   <button 
                     onClick={() => removeFromCart(item.id)}
                     className="text-gray-400 hover:text-red-600 transition-colors p-2"

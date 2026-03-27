@@ -63,14 +63,23 @@ const OrderDetails = () => {
               <h3 className="font-bold text-gray-800 mb-6 border-b-2 border-teal-500 pb-2 w-fit">الأصناف المطلوبة</h3>
               {order?.orderItems?.map((item, index) => (
                 <div key={index} className="flex items-center gap-4 mb-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
-             <img 
+            <img 
   src={
-    item.pictureUrl.startsWith('http') 
-      ? item.pictureUrl 
-      : `http://talabat-nahla-api.runasp.net/${item.pictureUrl.replace(/^\/+/, '')}` 
+    item.pictureUrl 
+      ? (item.pictureUrl.startsWith('http') 
+          ? item.pictureUrl 
+          : `http://talabat-nahla-api.runasp.net/${item.pictureUrl.replace(/\\/g, '/').replace(/^\/+/, '')}` 
+        )
+      : 'https://via.placeholder.com/150?text=No+Image' 
   }
   className="w-16 h-16 rounded-xl object-cover bg-white" 
   alt={item.productName} 
+  onError={(e) => {
+    
+    if (item.pictureUrl && !item.pictureUrl.startsWith('http')) {
+       e.target.src = `http://talabat-nahla-api.runasp.net/images/products/${item.pictureUrl.split('/').pop()}`;
+    }
+  }}
 />
                   <div className="flex-1">
                     <p className="font-bold text-gray-900">{item.productName}</p>
