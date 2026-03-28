@@ -22,6 +22,7 @@ import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import OrderDetails from './Components/OrderDetails/OrderDetails'
+
 //import ResetPassword from './Components/ResetPassword/ResetPassword'
 
 const queryClient = new QueryClient()
@@ -50,6 +51,7 @@ const App = () => {
         
         { path: '/homeSlider', element: <ProtectedRoute><HomeSlider /></ProtectedRoute> },
         { path: '/forgot-password', element: <ForgotPassword /> },
+
          // { path: '/reset-password', element: <ProtectedRoute><ResetPassword/></ProtectedRoute> },
         { path: '/*', element: <Error /> }
       ]
@@ -69,3 +71,5 @@ const App = () => {
 }
 
 export default App
+
+
