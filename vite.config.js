@@ -10,14 +10,13 @@ export default defineConfig({
   ],
   server: {
     proxy: {
-  
       '/Api': {
-        target: 'http://localhost:5202', 
+        target: 'https://localhost:7122',
         changeOrigin: true,
         secure: false,
       },
       '/images': {
-        target: 'http://localhost:5202',
+        target: 'https://localhost:7122',
         changeOrigin: true,
         secure: false,
       }
