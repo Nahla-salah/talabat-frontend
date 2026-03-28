@@ -12,42 +12,32 @@ function Login() {
   const { setToken } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
 
-
   const validYup = Yup.object().shape({
     Email: Yup.string().email("Invalid email format").required("Email is required"),
     Password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
   });
 
-
   async function signin(values, { resetForm }) {
     setLoading(true);
     try {
-    
-      const { data } = await axios.post('/Api/Authentication/Login', values);
+      const baseUrl = import.meta.env.VITE_API_BASE_URL;
+      const { data } = await axios.post(`${baseUrl}Authentication/Login`, values);
       
-   
       localStorage.setItem("Token", data.token);
-      
-
       localStorage.setItem("UserEmail", data.email || data.userEmail);
       
-
       setToken(data.token);
-   
       toast.success("Login Successful");
       
-
       resetForm(); 
-      
       setLoading(false);
       navigate('/'); 
     } catch (e) {
-      const errorMsg = e.response?.data?.message || "فشل تسجيل الدخول، يرجى المحاولة مرة أخرى.";
+      const errorMsg = e.response?.data?.message || "Login failed, please try again.";
       toast.error(errorMsg);
       setLoading(false);
     }
   }
-
 
   const formik = useFormik({
     initialValues: {
@@ -70,8 +60,6 @@ function Login() {
         </div>
 
         <form className="space-y-6" onSubmit={formik.handleSubmit}>
-        
-
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
             <div className="relative group">
@@ -92,7 +80,6 @@ function Login() {
               <p className="text-red-500 text-xs mt-1">{formik.errors.Email}</p>
             )}
           </div>
-
 
           <div>
             <div className="flex justify-between items-center mb-2">

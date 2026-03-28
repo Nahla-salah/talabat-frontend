@@ -10,7 +10,6 @@ function Register() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
-
   const validYup = Yup.object().shape({
     UserName: Yup.string().required("User Name is required"),
     DisplayName: Yup.string().required("Display Name is required"),
@@ -19,26 +18,25 @@ function Register() {
     PhoneNumber: Yup.string().matches(/^[0-9]{11}$/, "Phone number must be 11 digits").required("Phone number is required")
   });
 
-async function signup(values, { resetForm }) {
+  async function signup(values, { resetForm }) {
     setLoading(true);
     try {
-      const { data } = await axios.post('/Api/Authentication/Register', values);
+  
+      const baseUrl = import.meta.env.VITE_API_BASE_URL;
+      const { data } = await axios.post(`${baseUrl}Authentication/Register`, values);
+      
       toast.success("Registration successful!");
-       localStorage.setItem("Token", data.token);
+      localStorage.setItem("Token", data.token);
       resetForm();
       setLoading(false);
       navigate('/login');
     } catch (e) {
       console.log("Full Error Response:", e.response?.data);
-
-     
       const errorMsg = e.response?.data?.errorMessage || "Registration failed. Please try again.";
-      
       toast.error(errorMsg);
       setLoading(false);
     }
   }
-
 
   const formik = useFormik({
     initialValues: {
@@ -59,13 +57,12 @@ async function signup(values, { resetForm }) {
         <div className="text-center mb-10">
           <h2 className="text-3xl font-extrabold text-gray-900">Register</h2>
           <p className="mt-2 text-sm text-gray-600">
-            انضم إلينا واستمتع بأشهى المأكولات من حولك
+            Join us and enjoy the best food around you
           </p>
         </div>
 
         <form className="space-y-5" onSubmit={formik.handleSubmit}>
           
-          {/* User Name */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">User Name</label>
             <div className="relative">
@@ -79,13 +76,12 @@ async function signup(values, { resetForm }) {
                 onBlur={formik.handleBlur}
                 type="text" 
                 className={`block w-full pl-10 pr-3 py-3 border rounded-xl focus:ring-2 outline-none transition shadow-sm ${formik.touched.UserName && formik.errors.UserName ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-green-500'}`}
-                placeholder="Nahla_Salah"
+                placeholder="Username"
               />
             </div>
             {formik.touched.UserName && formik.errors.UserName && <p className="text-red-500 text-xs mt-1">{formik.errors.UserName}</p>}
           </div>
 
-          {/* Display Name */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Display Name</label>
             <div className="relative">
@@ -99,13 +95,12 @@ async function signup(values, { resetForm }) {
                 onBlur={formik.handleBlur}
                 type="text" 
                 className={`block w-full pl-10 pr-3 py-3 border rounded-xl focus:ring-2 outline-none transition shadow-sm ${formik.touched.DisplayName && formik.errors.DisplayName ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-green-500'}`}
-                placeholder="Nahla Salah"
+                placeholder="Your Full Name"
               />
             </div>
             {formik.touched.DisplayName && formik.errors.DisplayName && <p className="text-red-500 text-xs mt-1">{formik.errors.DisplayName}</p>}
           </div>
 
-          {/* Email */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
             <div className="relative">
@@ -125,7 +120,6 @@ async function signup(values, { resetForm }) {
             {formik.touched.Email && formik.errors.Email && <p className="text-red-500 text-xs mt-1">{formik.errors.Email}</p>}
           </div>
 
-          {/* Phone Number */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
             <div className="relative">
@@ -145,7 +139,6 @@ async function signup(values, { resetForm }) {
             {formik.touched.PhoneNumber && formik.errors.PhoneNumber && <p className="text-red-500 text-xs mt-1">{formik.errors.PhoneNumber}</p>}
           </div>
 
-          {/* Password */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
             <div className="relative">
@@ -171,7 +164,7 @@ async function signup(values, { resetForm }) {
               type="submit" 
               className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-lg text-sm font-bold text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200 disabled:bg-gray-400"
             >
-              {loading ? <i className="fas fa-spinner fa-spin"></i> : "Register"}
+              {loading ? "Registering..." : "Register"}
             </button>
           </div>
         </form>
